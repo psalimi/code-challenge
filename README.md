@@ -20,6 +20,12 @@ $ gradle run --args=src/main/resources/files/input1.txt
 ```
 The program uses the input file and creates a new file called "driverHistory.txt" which consists of the name of the driver, the total miles driven and the average speed for each driver. This file can be found under the build directory "build/resources/main/files/".
 
+### Tests
+In order to run the test cases use the following command:
+```sh
+$ gradle test
+```
+
 ## Development
 In order to calculate the driver history for each driver based on their trips, I decided to create two models called Driver and Trip. The Trip model contains information about each trip (startTime, endTime, milesDriven). The Driver model contains the name of the driver, a list of all the trips for that driver, total distance, total time driven, and the average speed. TrackDrivingHistoryService class is the main part of the program which handles all the data manipulation, calculations and verification. 
 
