@@ -36,7 +36,9 @@ public class TrackDrivingHistory {
             String[] data = line.split(" ");
 
             if (trackDrivingHistoryService.isCommandDriver(line)) {
-                drivers.put(data[1], trackDrivingHistoryService.createDriver(data));
+                if (!drivers.containsKey(data[1])) {
+                    drivers.put(data[1], trackDrivingHistoryService.createDriver(data));
+                }
             } else if (trackDrivingHistoryService.isCommandTrip(line)) {
                 String driverName = data[1];
                 Trip trip = trackDrivingHistoryService.createTrip(data);

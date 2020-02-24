@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -18,10 +20,10 @@ public class TrackDrivingHistoryServiceTest {
     @Test
     public void isDataValidTest() {
         String validData = "Driver Dan";
-        assertTrue(trackDrivingHistoryService.isDataValid(validData, 2));
+        assertTrue(this.trackDrivingHistoryService.isDataValid(validData, 2));
 
         String invalidData = "";
-        assertFalse(trackDrivingHistoryService.isDataValid(invalidData, 2));
+        assertFalse(this.trackDrivingHistoryService.isDataValid(invalidData, 2));
     }
 
     @Test
@@ -82,6 +84,12 @@ public class TrackDrivingHistoryServiceTest {
     }
 
     @Test
-    public void createDrivingReportTest() {
+    public void createDrivingReportIntegrationTest() {
+        Map<String, Driver> drivers = new HashMap<>();
+        Driver driver1 = new Driver("Dan");
+        Driver driver2 = new Driver("Parham");
+        drivers.put("dan", driver1);
+        drivers.put("parham", driver2);
+        this.trackDrivingHistoryService.createDrivingReport(drivers);
     }
 }

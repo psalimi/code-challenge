@@ -141,8 +141,9 @@ public class TrackDrivingHistoryService {
             FileWriter writer = new FileWriter(file);
             try {
                 writer.write(text);
+                LOGGER.info("Successfully created driving history.");
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error("Failed to write to file", e);
             }
             writer.close();
         } catch (IOException e) {
